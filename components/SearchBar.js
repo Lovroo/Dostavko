@@ -4,10 +4,20 @@ import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplet
 import Ionicons from "react-native-vector-icons/Ionicons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 
-export default function SearchBar() {
+export default function SearchBar({cityHandler}) {
   return (
     <View style={{ marginTop: 15, flexDirection: "row" }}>
       <GooglePlacesAutocomplete
+        query={{ key: "AIzaSyCawi3rZqLP3VcEE6GC0dFF4svBro_rxSE" }}
+        onPress={(data, details = null) => {
+          const city = data.description.split(",")[0];
+          cityHandler(city);
+        }}
+      requestUrl={{
+        useOnPlatform: 'all', // or "all"
+        url:
+          'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api', // or any proxy server that hits https://maps.googleapis.com/maps/api
+      }}
         placeholder="Išči restavracijo"
         styles={{
           textInput: {
