@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, SafeAreaView, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
-import LottieView from 'lottie-react-native';
 import firebase from 'firebase/compat'
 import MenuItems from "../components/MenuItems";
 import { ScrollView } from "react-native-gesture-handler";
@@ -69,15 +68,6 @@ export default function OrderCompleted() {
             marginLeft={10}
           />
         </ScrollView>
-        <View style={styles.animationContainer}>
-        <LottieView
-          style={{
-            width: 200,
-            height: 200,
-          }}
-          source={require('../assets/animations/cooking.json')}
-        />
-      </View>
       </View>
     </SafeAreaView>
   );
